@@ -47,8 +47,7 @@ const getUsers = async (req, resp) => {
     last: allUsers.totalPages ? `http://localhost:8080/products?limit=${limit}&page=${allUsers.totalPages}` : false,
   };
   resp.links(linkHeader);
-  resp.status(200).json(allUsers.docs);
-  // resp.status(200).json(linkHeader);
+  return resp.status(200).json(allUsers.docs);
 };
 
 const getUserById = async (req, resp) => {
