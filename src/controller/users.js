@@ -46,7 +46,7 @@ const getUsers = async (req, resp) => {
     next: allUsers.hasNextPage ? `http://localhost:8080/products?limit=${limit}&page=${page + 1}` : false,
     last: allUsers.totalPages ? `http://localhost:8080/products?limit=${limit}&page=${allUsers.totalPages}` : false,
   };
-  resp.links(linkHeader);
+  /*resp.links(linkHeader);*/
   return resp.status(200).json(allUsers.docs);
 };
 
