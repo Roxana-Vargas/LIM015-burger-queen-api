@@ -40,13 +40,13 @@ const getUsers = async (req, resp) => {
   const limit = parseInt(req.query.limit, 10) || 10;
   const page = parseInt(req.query.page, 10) || 1;
   const allUsers = await User.paginate({}, { limit, page });
-  const linkHeader = {
+  /* const linkHeader = {
     first: `http://localhost:8080/products?limit=${limit}&page=1`,
     prev: allUsers.hasPrevPage ? `http://localhost:8080/products?limit=${limit}&page=${page - 1}` : false,
     next: allUsers.hasNextPage ? `http://localhost:8080/products?limit=${limit}&page=${page + 1}` : false,
     last: allUsers.totalPages ? `http://localhost:8080/products?limit=${limit}&page=${allUsers.totalPages}` : false,
   };
-  /*resp.links(linkHeader);*/
+  resp.links(linkHeader); */
   return resp.json(allUsers.docs);
 };
 
